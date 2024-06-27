@@ -33,5 +33,21 @@ jobs:
         uses: danielpalme/ReportGenerator-GitHub-Action@5.3.5
         with:
           reports: "**/coverage.cobertura.xml"
-          targetdir: .
+          targetdir: "done/results"
           reporttypes: Html;Html_Dark
+
+      - name: Upload Code Coverage Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage-report
+          path: path/to/report
+          
+      - name: Download Code Coverage Report
+        uses: actions/download-artifact@v2
+        with:
+          name: code-coverage-report
+          path: path/to/download
+          
+
+        
+

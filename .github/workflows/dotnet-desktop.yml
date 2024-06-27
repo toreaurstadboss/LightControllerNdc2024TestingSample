@@ -51,7 +51,7 @@ jobs:
 
       - name: List zip files
         run: |
-          find . -type f -name "CoverageReports.zip" -exec echo {} \;
+          find . -name *.zip
 
       - name: Extract Code Coverage Report
         run: |

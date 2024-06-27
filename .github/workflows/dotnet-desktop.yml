@@ -27,7 +27,7 @@ jobs:
           dotnet tool install -g dotnet-reportgenerator-globaltool
           dotnet build
           dotnet test --logger "junit;LogFilePath=../results/test-results.xml"  --collect:"XPLat Code Coverage"
-          reportgenerator "-reports:coverage.cobertura.xml" "-targetdir:done/results"
+          reportgenerator "-reports:**/coverage.cobertura.xml" "-targetdir:."
 
       - name: ReportGenerator
         uses: danielpalme/ReportGenerator-GitHub-Action@5.3.5

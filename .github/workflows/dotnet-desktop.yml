@@ -51,7 +51,7 @@ jobs:
 
       - name: List zip files 
         run: |
-          find . -type f -name "*.zip" -exec echo {} \;
+          find CoverageReports/ -type f -name "*.zip" -exec echo {} \;
 
       - name: Extract zip
         uses: ihiroky/extract-action@v1

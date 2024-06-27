@@ -43,27 +43,11 @@ jobs:
           historydir: 'CoverageHistory'
           reporttypes: 'HtmlInline;Cobertura'
 
-      - name: Upload coverage report
+      - name: Upload artifact folder 
         uses: actions/upload-artifact@v4
         with:
-          name: CoverageReports
-          path: CoverageReports
-
-      - name: List zip files 
-        run: |
-          find CoverageReports/ -type f -name "*.zip" -exec echo {} \;
-
-      - name: Extract zip
-        uses: ihiroky/extract-action@v1
-        with:
-          file_path: CoverageReports/CoverageReports.zip
-          extract_dir: extracted-report
-          
-      - name: Upload Extracted Report
-        uses: actions/upload-artifact@v2
-        with:
-          name: extracted-code-coverage
-          path: extracted-report
+            name: my-artifact
+            path: path/to/artifact/ # or path/to/artifact
 
     #- name: Upload coverage history
     #    uses: actions/upload-artifact@v4

@@ -24,11 +24,10 @@ jobs:
         run: |
           cd done
           dotnet restore
-          # dotnet tool install -g dotnet-reportgenerator-globaltool
-          dotnet build
-          dotnet test --logger "junit;LogFilePath=../results/test-results.xml"  --collect:"XPLat Code Coverage"
-          # reportgenerator "-reports:**/coverage.cobertura.xml" "-targetdir:."
 
+          dotnet build
+          dotnet test --logger "junit;LogFilePath=../results/test-results.xml"  --collect:"XPLat Code Coverage"   
+          
       - name: ReportGenerator
         uses: danielpalme/ReportGenerator-GitHub-Action@5.3.5
         with:
@@ -36,27 +35,11 @@ jobs:
           targetdir: "done/results"
           reporttypes: Html;Html_Dark
 
-      - name: Upload Code Coverage Report
-        uses: actions/upload-artifact@v2
+      - name: Upload coverage report artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: code-coverage-report
-          path: done/results
-          
-      - name: Download Code Coverage Report
-        uses: actions/download-artifact@v2
-        with:
-          name: code-coverage-report
-          path: done/results
-
-      - name: Extract Code Coverage Report
-        run: |
-              unzip done/results/code-coverage-report.zip -d extracted-report
-
-      - name: Upload Extracted Report
-        uses: actions/upload-artifact@v2
-        with:
-          name: extracted-code-coverage
-          path: extracted-report
+          name: CoverageReport # Artifact name        
+          path: coveragereport # Directory containing files to upload
           
 
 

@@ -25,7 +25,7 @@ jobs:
           cd done
           dotnet restore
           dotnet build
-          dotnet test --logger "junit;LogFilePath=../results/test-results.xml"
+          dotnet test --logger "junit;LogFilePath=../results/test-results.xml"  --collect:"XPLat Code Coverage"
 
       - name: Test Report
         uses: dorny/test-reporter@v1

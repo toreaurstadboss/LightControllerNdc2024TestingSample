@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<testsuites time="0.108" tests="13" failures="0">
+  <testsuite id="0" name="LightController.Test.dll" tests="13" failures="0" time="0.108">
+    <testcase classname="LightController.Test.HelloWorld" name="LightController.Test.HelloWorld.HelloTest" time="0.0104229" />
+    <testcase classname="LightController.Test.LightActuator_ActuatateLights_Tests" name="LightController.Test.LightActuator_ActuatateLights_Tests.MotionDetected_TurnOn(timeOfDay: Evening, expected: True)" time="0.0886709" />
+    <testcase classname="LightController.Test.LightActuator_ActuatateLights_Tests" name="LightController.Test.LightActuator_ActuatateLights_Tests.MotionDetected_TurnOn(timeOfDay: Afternoon, expected: False)" time="0.0022491" />
+    <testcase classname="LightController.Test.LightActuator_ActuatateLights_Tests" name="LightController.Test.LightActuator_ActuatateLights_Tests.MotionDetected_TurnOn(timeOfDay: Night, expected: True)" time="0.0002694" />
+    <testcase classname="LightController.Test.LightActuator_ActuatateLights_Tests" name="LightController.Test.LightActuator_ActuatateLights_Tests.MotionDetected_TurnOn(timeOfDay: Morning, expected: False)" time="0.0002074" />
+    <testcase classname="LightController.Test.LightActuator_ActuatateLights_Tests" name="LightController.Test.LightActuator_ActuatateLights_Tests.MotionDetected_SetCurrentDate" time="0.0017017" />
+    <testcase classname="LightController.Test.LightActuator_ActuatateLights_Tests" name="LightController.Test.LightActuator_ActuatateLights_Tests.MotionNotDetected_TurnOff(timeOfDay: Afternoon, expected: True)" time="0.0009065" />
+    <testcase classname="LightController.Test.LightActuator_ActuatateLights_Tests" name="LightController.Test.LightActuator_ActuatateLights_Tests.MotionNotDetected_TurnOff(timeOfDay: Night, expected: False)" time="0.0004514" />
+    <testcase classname="LightController.Test.LightActuator_ActuatateLights_Tests" name="LightController.Test.LightActuator_ActuatateLights_Tests.MotionNotDetected_TurnOff(timeOfDay: Morning, expected: True)" time="0.0002297" />
+    <testcase classname="LightController.Test.LightActuator_ActuatateLights_Tests" name="LightController.Test.LightActuator_ActuatateLights_Tests.MotionNotDetected_TurnOff(timeOfDay: Evening, expected: False)" time="0.0002677" />
+    <testcase classname="LightController.Test.LightActuator_ActuatateLights_Tests" name="LightController.Test.LightActuator_ActuatateLights_Tests.MotionNotDetected_SetCurrentDate" time="0.0009151" />
+    <testcase classname="LightController.Test.LightActuator_ActuatateLights_Tests" name="LightController.Test.LightActuator_ActuatateLights_Tests.MotionNotDetectedLongEnough_TurnOff(seconds: 59, expected: False)" time="0.0008248" />
+    <testcase classname="LightController.Test.LightActuator_ActuatateLights_Tests" name="LightController.Test.LightActuator_ActuatateLights_Tests.MotionNotDetectedLongEnough_TurnOff(seconds: 61, expected: True)" time="0.0004029" />
+  </testsuite>
+</testsuites>

@@ -33,5 +33,5 @@ jobs:
         uses: danielpalme/ReportGenerator-GitHub-Action@5.3.5
         with:
           reports: "**/coverage.cobertura.xml"
-          targetdir: done/results/
+          targetdir: .
           reporttypes: Html;Html_Dark

@@ -36,13 +36,12 @@ jobs:
           dotnet test --logger "junit;LogFilePath=../results/test-results.xml"  --collect:"XPLat Code Coverage"   
           
       - name: Generate Coverage Report
-        uses: danielpalme/ReportGenerator-GitHub-Action@4.8.12
+        uses: danielpalme/ReportGenerator-GitHub-Action@5
         with:
-          reports: "${{ github.workspace }}/**/*coverage.xml"
-          sourcedirs: "${{ github.workspace }}/src/"
+          reports: "${{ github.workspace }}/**/*coverage.cobertura.xml"
+          sourcedirs: "${{ github.workspace }}/"
           targetdir: coveragereport_${{ github.run_number }}
-          reporttypes: HtmlInline
-          continue-on-error: false
+          reporttypes: 'HtmlInline;Cobertura'
           
       - name: Test Report
         uses: dorny/test-reporter@v1

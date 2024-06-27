@@ -20,12 +20,12 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
-      - name: Restore coverage history
-        uses: dawidd6/action-download-artifact@v3
-        with:
-          name: CoverageHistory
-          path: CoverageHistory
-          continue-on-error: true
+      #- name: Restore coverage history
+      #  uses: dawidd6/action-download-artifact@v3
+      #  with:
+      #    name: CoverageHistory
+      #    path: CoverageHistory
+      #    continue-on-error: true
 
       - name: Build and test done folder
         run: |
@@ -49,11 +49,11 @@ jobs:
           name: CoverageReports
           path: CoverageReports
 
-      - name: Upload coverage history
-        uses: actions/upload-artifact@v4
-        with:
-          name: CoverageHistory
-          path: CoverageHistory
+    #- name: Upload coverage history
+    #    uses: actions/upload-artifact@v4
+    #    with:
+    #      name: CoverageHistory
+    #      path: CoverageHistory
 
 
           

@@ -20,6 +20,13 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
+      - name: Restore coverage history
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          name: CoverageHistory
+          path: CoverageHistory
+          continue-on-error: true
+
       - name: Build and test done folder
         run: |
           cd done
@@ -29,27 +36,24 @@ jobs:
           dotnet test --logger "junit;LogFilePath=../results/test-results.xml"  --collect:"XPLat Code Coverage"   
           
       - name: ReportGenerator
-        uses: danielpalme/ReportGenerator-GitHub-Action@5.3.5
+        uses: danielpalme/ReportGenerator-GitHub-Action@5
         with:
-          reports: "**/coverage.cobertura.xml"
-          targetdir: "done/results"
-          reporttypes: Html_Dark
+          reports: '*Test*/TestResults/*/coverage.cobertura.xml'
+          targetdir: 'CoverageReports'
+          historydir: 'CoverageHistory'
+          reporttypes: 'HtmlInline;Cobertura'
 
-      - name: Upload coverage report artifact
+      - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
-          name: CoverageReport # Artifact name        
-          path: done/results # Directory containing files to upload
+          name: CoverageReports
+          path: CoverageReports
 
-      - name: Lists done/results folder
-        run: ls -al done/results
-        shell: bash
-          
-
-      - name: Publish coverage in build summary # Only applicable if 'MarkdownSummaryGithub' or one of the other Markdown report types is generated
-        run: cat done/results/index.html >> $GITHUB_STEP_SUMMARY # Adjust path and filename if necessary
-        shell: bash
-          
+      - name: Upload coverage history
+        uses: actions/upload-artifact@v4
+        with:
+          name: CoverageHistory
+          path: CoverageHistory
 
 
           

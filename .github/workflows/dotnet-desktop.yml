@@ -24,8 +24,10 @@ jobs:
         run: |
           cd done
           dotnet restore
+          dotnet tool install -g dotnet-reportgenerator-globaltool
           dotnet build
           dotnet test --logger "junit;LogFilePath=../results/test-results.xml"  --collect:"XPLat Code Coverage"
+          reportgenerator "-reports:coverage.cobertura.xml" "-targetdir:."
 
       - name: Test Report
         uses: dorny/test-reporter@v1

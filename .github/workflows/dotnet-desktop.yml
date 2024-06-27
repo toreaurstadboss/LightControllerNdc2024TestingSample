@@ -50,7 +50,7 @@ jobs:
 
       - name: Extract Code Coverage Report
         run: |
-              unzip **/code-coverage-report.zip -d extracted-report
+              unzip **/code-coverage-report -d extracted-report
 
       - name: Upload Extracted Report
         uses: actions/upload-artifact@v2

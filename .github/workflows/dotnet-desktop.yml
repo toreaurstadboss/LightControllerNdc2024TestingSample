@@ -47,6 +47,19 @@ jobs:
         with:
           name: code-coverage-report
           path: done/results
+
+      - name: Extract Code Coverage Report
+        run: |
+              unzip done/results/code-coverage-report.zip -d extracted-report
+
+      - name: Upload Extracted Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: extracted-code-coverage
+          path: extracted-report
+          
+
+
           
           
 

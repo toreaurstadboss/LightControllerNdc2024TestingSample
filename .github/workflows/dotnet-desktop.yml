@@ -49,13 +49,13 @@ jobs:
           name: CoverageReports
           path: CoverageReports
 
-      - name: List zip files
+      - name: List zip files 
         run: |
-          find . -type f -name "*.xml" -exec echo {} \;
+          find . -type f -name "*.zip" -exec echo {} \;
 
       - name: Extract Code Coverage Report
         run: |
-          find . -type f -name "CoverageReports.zip" -exec unzip {} -d extracted-report \;
+          find . -type f -name "*.zip" -exec unzip {} -d extracted-report \;
           
       - name: Upload Extracted Report
         uses: actions/upload-artifact@v2

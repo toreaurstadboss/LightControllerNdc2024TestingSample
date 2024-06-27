@@ -49,6 +49,16 @@ jobs:
           name: CoverageReports
           path: CoverageReports
 
+      - name: Extract Code Coverage Report
+        run: |
+          unzip CoverageReports/CoverageReports.zip -d extracted-report
+
+      - name: Upload Extracted Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: extracted-code-coverage
+          path: extracted-report
+
     #- name: Upload coverage history
     #    uses: actions/upload-artifact@v4
     #    with:

@@ -58,7 +58,7 @@ jobs:
           path: coveragereport_${{ github.run_number }}/
 
       - name: Extract Zip File
-        run: unzip coveragereport_${{ github.run_number }}/**.zip -d extracted-folder
+        run: unzip **/*.zip -d extracted-folder
 
       - name: Upload Extracted Files
         uses: actions/upload-artifact@v4

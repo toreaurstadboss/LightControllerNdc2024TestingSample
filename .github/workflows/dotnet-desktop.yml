@@ -34,7 +34,7 @@ jobs:
 
           dotnet build
           dotnet test --logger "junit;LogFilePath=../results/test-results.xml"  --collect:"XPLat Code Coverage"   
-          
+
       - name: Generate Coverage Report
         uses: danielpalme/ReportGenerator-GitHub-Action@5
         with:
@@ -42,7 +42,8 @@ jobs:
           sourcedirs: "${{ github.workspace }}/"
           targetdir: coveragereport_${{ github.run_number }}
           reporttypes: 'HtmlInline;Cobertura'
-          
+
+           
       - name: Test Report
         uses: dorny/test-reporter@v1 
         if: always()
@@ -51,30 +52,11 @@ jobs:
           path: "done/results/**/*.xml"
           reporter: java-junit
 
-      - name: Upload CoverageReportFiles
+      - name: Upload coverage report artifact
         uses: actions/upload-artifact@v4
         with:
-          name: CoberturaCodeCoverageReport
-          path: coveragereport_${{ github.run_number }}/
-
-      - name: Get all zip files
-        id: filelist
-        uses: the-coding-turtle/ga-file-list@v0.1
-        with:
-          directory: coveragereport_${{ github.run_number }}
-          file_extension: "*.*"
-
-      - name: Extract tgz
-        uses: ihiroky/extract-action@v1
-        with:
-          file_path: coveragereport_${{ github.run_number }}/CoberturaCodeCoverageReport.zip
-          extract_dir: extracted-folder
-
-      - name: Upload Extracted Files
-        uses: actions/upload-artifact@v4
-        with:
-          name: code-coverage-html-cobertura-report
-          path: extracted-folder
+          name: CoverageReport # Artifact name        
+          path: coveragereport # Directory containing files to upload
 
 
           

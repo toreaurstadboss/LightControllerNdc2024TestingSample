@@ -57,12 +57,12 @@ jobs:
           name: CoberturaCodeCoverageReport
           path: coveragereport_${{ github.run_number }}/
 
-      - name: Capture Folder Contents
-        run: echo "folder-contents=$(ls -R)" >> $GITHUB_ENV
-
-      - name: Use Folder Contents
-        run: echo "Folder contents:${{ env.folder-contents }}"
-
+      - name: Get all zip files
+        id: filelist
+        uses: the-coding-turtle/ga-file-list@v0.1
+        with:
+          directory: coveragereport_${{ github.run_number }}/
+          file_extension: "*.zip"
 
       - name: Extract tgz
         uses: ihiroky/extract-action@v1

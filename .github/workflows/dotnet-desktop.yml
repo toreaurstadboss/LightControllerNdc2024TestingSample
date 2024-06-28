@@ -55,7 +55,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: CoberturaCodeCoverageReport
-          path: "${{ github.workspace }}/**/coverage.cobertura.xml"
+          path: coveragereport_${{ github.run_number }}/
           
 
 

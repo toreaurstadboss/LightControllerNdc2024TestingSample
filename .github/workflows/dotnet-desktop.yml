@@ -55,8 +55,8 @@ jobs:
       - name: Upload coverage report artifact
         uses: actions/upload-artifact@v4
         with:
-          name: CoverageReport # Artifact name        
-          path: coveragereport # Directory containing files to upload
+          name: CoberturaCoverageReport # Artifact name        
+          path: coveragereport_${{ github.run_number }} # Directory containing files to upload
 
 
           

@@ -60,7 +60,7 @@ jobs:
       - name: Extract tgz
         uses: ihiroky/extract-action@v1
         with:
-          file_path: "**/*.zip"
+          file_path: coveragereport_${{ github.run_number }}/CoberturaCodeCoverageReport.zip
           extract_dir: extracted-folder
 
       - name: Upload Extracted Files

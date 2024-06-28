@@ -52,10 +52,21 @@ jobs:
           reporter: java-junit
 
       - name: Upload CoverageReportFiles
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: CoberturaCodeCoverageReport
           path: coveragereport_${{ github.run_number }}/
+
+      - name: Extract Zip File
+        run: unzip coveragereport_${{ github.run_number }}/**.zip -d extracted-folder
+
+      - name: Upload Extracted Files
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage-html-cobertura-report
+          path: extracted-folder
+
+
           
 
 

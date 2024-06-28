@@ -57,6 +57,13 @@ jobs:
           name: CoberturaCodeCoverageReport
           path: coveragereport_${{ github.run_number }}/
 
+      - name: Capture Folder Contents
+        run: echo "folder-contents=$(ls -R)" >> $GITHUB_ENV
+
+      - name: Use Folder Contents
+        run: echo "Folder contents:${{ env.folder-contents }}"
+
+
       - name: Extract tgz
         uses: ihiroky/extract-action@v1
         with:

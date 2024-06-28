@@ -41,7 +41,7 @@ jobs:
           reports: "${{ github.workspace }}/**/*coverage.cobertura.xml"
           sourcedirs: "${{ github.workspace }}/"
           targetdir: coveragereport_${{ github.run_number }}
-          reporttypes: 'HtmlInline;Cobertura;MarkdownSummaryGithub'
+          reporttypes: 'MarkdownSummaryGithub'
 
            
       - name: Test Report
@@ -59,7 +59,7 @@ jobs:
           path: coveragereport_${{ github.run_number }} # Directory containing files to upload
 
       - name: Publish coverage in build summary # Only applicable if 'MarkdownSummaryGithub' or one of the other Markdown report types is generated
-        run: cat coveragereport/SummaryGithub.md >> $GITHUB_STEP_SUMMARY # Adjust path and filename if necessary
+        run: cat coveragereport_${{ github.run_number }}/SummaryGithub.md >> $GITHUB_STEP_SUMMARY # Adjust path and filename if necessary
         shell: bash
 
 

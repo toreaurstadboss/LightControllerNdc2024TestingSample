@@ -61,8 +61,8 @@ jobs:
         id: filelist
         uses: the-coding-turtle/ga-file-list@v0.1
         with:
-          directory: coveragereport_${{ github.run_number }}/
-          file_extension: "*.zip"
+          directory: coveragereport_${{ github.run_number }}
+          file_extension: "*.*"
 
       - name: Extract tgz
         uses: ihiroky/extract-action@v1

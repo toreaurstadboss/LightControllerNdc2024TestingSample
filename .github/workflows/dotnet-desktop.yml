@@ -41,7 +41,7 @@ jobs:
           reports: "${{ github.workspace }}/**/*coverage.cobertura.xml"
           sourcedirs: "${{ github.workspace }}/"
           targetdir: coveragereport_${{ github.run_number }}
-          reporttypes: 'Cobertura'
+          reporttypes: 'MarkdownSummaryGithub'
 
            
       - name: Test Report

@@ -57,8 +57,11 @@ jobs:
           name: CoberturaCodeCoverageReport
           path: coveragereport_${{ github.run_number }}/
 
-      - name: Extract Zip File
-        run: unzip **/*.zip -d extracted-folder
+      - name: Extract tgz
+        uses: ihiroky/extract-action@v1
+        with:
+          file_path: "**/*.zip"
+          extract_dir: extracted-folder
 
       - name: Upload Extracted Files
         uses: actions/upload-artifact@v4
